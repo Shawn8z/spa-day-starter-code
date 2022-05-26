@@ -20,19 +20,16 @@ public class UserController {
     }
 
     @PostMapping
-    public String processAddUserForm(@ModelAttribute @Valid User user, Errors errors, String verify) {
+    public String processAddUserForm( @ModelAttribute @Valid User user, Errors errors) {
 
-        if (user.getPassword().equals(verify)) {
-           return "user/add";
-        } else if (errors.hasErrors()) {
+        if (errors.hasErrors()) {
             return "user/add";
-        }
-        else {
 
-            return "user/add";
+        } else {
+
+            return "user/index";
         }
 
     }
-
 
 }
